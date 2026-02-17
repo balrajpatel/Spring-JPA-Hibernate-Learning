@@ -14,8 +14,9 @@ public class Main {
 
         EntityManagerFactory emf = new HibernatePersistenceProvider().createContainerEntityManagerFactory(new CustomPersistenceUnitInfo(),new HashMap<>());
 
-        EntityManager em = emf.createEntityManager();    // it is the manager of Persistence context where entities are stored
-        // it represents the Persistence context.
+        EntityManager em = emf.createEntityManager();    // it creates the context.
+        // it is the manager of Persistence context where entities are stored
+        // each entityManager represents the Persistence context.
 
         try {
             em.getTransaction().begin();
@@ -29,5 +30,7 @@ public class Main {
             throw new RuntimeException(e);
         } finally { em.close(); }
 
+
+        //Persistence.xml file or its corresponding modelling class are used to connect to a DB.
     }
 }

@@ -1,4 +1,4 @@
-package Persistence;
+package com.hibernate.jpac2ex1.Persistence;
 
 import com.zaxxer.hikari.HikariDataSource;
 import jakarta.persistence.SharedCacheMode;
@@ -64,7 +64,7 @@ public class CustomPersistenceUnitInfo implements PersistenceUnitInfo {
 
     @Override
     public List<String> getManagedClassNames() {
-        return List.of("Entities.Product");
+        return List.of("com.hibernate.jpac2ex1.Entities.Employee");
     }
 
     @Override
