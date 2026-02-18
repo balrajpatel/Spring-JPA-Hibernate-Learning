@@ -30,7 +30,7 @@ public class Main {
             person.setName("John Doe");
             passport.setPerson(person);
             em.persist(person);
-            // em.persist(passport); done with cascade
+            // em.persist(passport); done with cascade     ,cascade adds in the context and then commit() mirrors it in DB
 
             TypedQuery<Person> query = em.createQuery("select p from Person p where p.passport.number= :number", Person.class);
             query.setParameter("number", person.getPassport().getNumber());

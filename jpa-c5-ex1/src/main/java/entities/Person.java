@@ -10,7 +10,8 @@ public class Person {
 
     private String name;
 
-    @OneToOne(cascade = CascadeType.PERSIST)   // means persist operation on person,will cascade(happen to) on Passport also.
+    @OneToOne(cascade = CascadeType.PERSIST)   // means persist operation on person,will cascade(happen to) on Passport also
+    // cascade adds cascade objects in the context and then commit() mirrors it in DB
     // fetchTYpe= Lazy means only when the passport type is needed 1st time only then it is fetched
     //if not used, won't be fetched
     // fetchType = Eager means passport fetched when person details fetched
