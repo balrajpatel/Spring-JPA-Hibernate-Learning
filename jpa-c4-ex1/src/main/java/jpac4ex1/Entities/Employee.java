@@ -1,0 +1,61 @@
+package jpac4ex1.Entities;
+
+
+import jakarta.persistence.*;
+import jpac4ex1.Entities.generators.UUIDGenerator;
+import org.hibernate.annotations.GenericGenerator;
+
+@Entity
+@Table(name ="employees")
+public class Employee {
+
+
+
+    @Id
+    @GenericGenerator(name = "UUIDGenerator", type= UUIDGenerator.class)
+    @GeneratedValue(generator = "UUIDGenerator")
+    @Column(length = 500)
+    private String id;
+
+
+    @Column()
+    private String name;
+
+
+    private String address;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
+}
+
+// Entity annotations instructs spring to model the class to the table in the DB.
